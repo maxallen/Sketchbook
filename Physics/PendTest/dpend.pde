@@ -9,7 +9,7 @@ int h;
 float s = 30.;                      //scaling factor for drawing the arms
 float scale = 3.0;
 
-boolean whiteOnBlack = true;
+boolean whiteOnBlack = false;
  
 void setup() {
   size(800,800);
@@ -112,13 +112,12 @@ void draw() {
   }
   
   // Movie Frames //
-  if(whiteOnBlack){
-    
-  }else{
-    saveFrame("frames2/####.png");
-  }
-    saveFrame("frames/####.png");
-  }
+//  if(whiteOnBlack){
+//    saveFrame("frames/####.png");
+//  }else{
+//    saveFrame("frames2/####.png");
+//  }
+}
  
 void mouseClicked() {
   this.setup();
