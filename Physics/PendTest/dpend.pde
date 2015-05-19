@@ -21,7 +21,7 @@ void setup() {
   
   bg.beginDraw();
   bg.colorMode(RGB,255);
-  bg.background(255);ls
+  bg.background(255);
   
 //  bg.smooth();
   bg.endDraw();
@@ -65,13 +65,13 @@ void draw() {
     // should calculate vel wrt the actual states instead of the xy pos as it doesn't scale well right now
     
     bg.beginDraw(); 
-    bg.strokeWeight(1);
+    bg.strokeWeight(1.5);
     bg.stroke(0,30);
     bg.line(posx,posy,newposx,newposy);
     bg.endDraw();
     
     big.beginDraw();
-    big.strokeWeight(scale);
+    big.strokeWeight(1.5*scale);
     big.stroke(0,30);
     big.line(posx*scale, posy*scale, newposx*scale, newposy*scale);
     
@@ -79,10 +79,13 @@ void draw() {
     posy = newposy;
      
     image(bg,0,0); 
-    stroke(100,100,100);
+    stroke(30,50);
     strokeWeight(2);
     pend.draw();
   }
+  
+  // Movie Frames //
+  saveFrame("frames/####.png");
 }
  
 void mouseClicked() {
@@ -90,8 +93,11 @@ void mouseClicked() {
 }
 
 void keyPressed() {
-  if(key == 's'){
-    big.save(str(random(1000))+".tiff");
+//  if(key == 's'){
+//    big.save(str(random(1000))+".tiff");
+//  }
+  if(key == 'e'){
+    exit();
   }
 }
 
