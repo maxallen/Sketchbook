@@ -7,8 +7,9 @@ float centerx, centery;             //anchor point of the pendulum
 int w;
 int h;
 float s = 30.;                      //scaling factor for drawing the arms
- 
 float scale = 3.0;
+
+boolean whiteOnBlack = true;
  
 void setup() {
   size(800,800);
@@ -21,14 +22,24 @@ void setup() {
   
   bg.beginDraw();
   bg.colorMode(RGB,255);
-  bg.background(255);
+  if (whiteOnBlack){
+    bg.background(0);
+  }else{
+    bg.background(255);
+  }
+  
   
 //  bg.smooth();
   bg.endDraw();
   
   big.beginDraw();
   big.colorMode(RGB,255);
-  big.background(255);
+  if (whiteOnBlack){
+    big.background(0);
+  }else{
+    big.background(255);
+  }
+  
   big.smooth();
   big.endDraw();
   
@@ -48,13 +59,14 @@ void setup() {
   posx = centerx + s*pend.l1*sin(pend.x[0]) + s*pend.l2*sin(pend.x[2]);
   posy = centery + s*pend.l1*cos(pend.x[0]) + s*pend.l2*cos(pend.x[2]);
   
-  background(0);
-  smooth();
-   
+  if (whiteOnBlack){
+    background(0);
+  }else{
+    background(255);
+  }
 }
  
 void draw() {
-  background(255);
   for (int dfsa=0; dfsa<10;dfsa++){
     pend.update(0.003);
     newposx = centerx + s*pend.l1*sin(pend.x[0]) + s*pend.l2*sin(pend.x[2]);
@@ -66,36 +78,56 @@ void draw() {
     
     bg.beginDraw(); 
     bg.strokeWeight(1.5);
-    bg.stroke(0,30);
+    if (whiteOnBlack){
+      bg.stroke(255,50);
+    }else{
+      bg.stroke(0,30);
+    }
+    
     bg.line(posx,posy,newposx,newposy);
     bg.endDraw();
     
     big.beginDraw();
     big.strokeWeight(1.5*scale);
-    big.stroke(0,30);
+    if (whiteOnBlack){
+      big.stroke(255,50);
+    }else{
+      big.stroke(0,30);
+    }
+    
     big.line(posx*scale, posy*scale, newposx*scale, newposy*scale);
     
     posx = newposx;
     posy = newposy;
      
-    image(bg,0,0); 
-    stroke(30,50);
+    image(bg,0,0);
+    if (whiteOnBlack){
+      stroke(220,50);
+    }else{
+      stroke(20,50);
+    }
+    
     strokeWeight(2);
     pend.draw();
   }
   
   // Movie Frames //
-  saveFrame("frames/####.png");
-}
+  if(whiteOnBlack){
+    
+  }else{
+    saveFrame("frames2/####.png");
+  }
+    saveFrame("frames/####.png");
+  }
  
 void mouseClicked() {
   this.setup();
 }
 
 void keyPressed() {
-//  if(key == 's'){
-//    big.save(str(random(1000))+".tiff");
-//  }
+  if(key == 's'){
+    big.save(str(random(1000))+".tiff");
+  }
   if(key == 'e'){
     exit();
   }
