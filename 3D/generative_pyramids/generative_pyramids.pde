@@ -21,7 +21,7 @@ void draw() {
   noFill();
   
   // start in the middle
-  translate(width/2, height/2, 0);
+  translate(width/2 + 200, height/2 +200, 0);
   
   // rotate the canvas when the mouse moves
   rotateX(map(mouseY, 0, height, -PI/2, PI/2));
