@@ -11,7 +11,7 @@ int PHeight = 3000;
 boolean useColor = false;
 
 PGraphics sketch;
-boolean record = true;
+boolean record = false;
 
 void setup(){
   time = 0;

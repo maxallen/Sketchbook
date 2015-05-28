@@ -4,7 +4,7 @@ int num = 4096;
 PVector[] pos = new PVector[num];
 PVector[] vel = new PVector[num];
 PVector[] acc = new PVector[num];
-boolean record = true;
+boolean record = false;
 void setup(){
   size(700, 700, P2D);
   background(255);
@@ -16,7 +16,7 @@ void setup(){
       vel[i] = new PVector(0, 0);
       acc[i] = new PVector(0, 0);
   }
-  noiseDetail(14);
+  noiseDetail(1);
   //beginRecord(PDF, "lines.pdf");
 }
 float R1 = random(0, 255);
@@ -56,6 +56,10 @@ void keyPressed(){
   if(record){
     //endRecord();
     record = false;
+  }
+  
+  if(key=='r'){
+    setup();
   }
 }
 
