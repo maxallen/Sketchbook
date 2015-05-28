@@ -73,6 +73,7 @@ void drawNoise(PGraphics pg) {
   }
   pg.endShape();  
 }
+
 void keyPressed()
 {
   if (key == 'r') {
