@@ -14,10 +14,10 @@ UGeo model;
 
 
 void setup(){
-  size(800,800,P3D);
+  size(600,600,P3D);
   stroke(0);
-//  noFill();
-  fill(230);
+  noFill();
+//  fill(230);
   UMB.setGraphics(this);
   buildModel();
 }
@@ -74,8 +74,6 @@ void buildModel(){
           UFace f = new UFace(innerVertices.get(i), innerVertices.get(j), innerVertices.get(k));
           f.reverse();
           model.addFace(f);
-          
-          println("Inner face added.");
         }
       }
     }
