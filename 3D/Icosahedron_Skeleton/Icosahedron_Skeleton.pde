@@ -3,7 +3,7 @@ import java.lang.Math.*;
 
 boolean record = false;
 
-int thickness = 10;
+int thickness = 20;
 float scale = 100.0;
 float edge = scale*2;
 float smallEdge = edge-2*thickness;
